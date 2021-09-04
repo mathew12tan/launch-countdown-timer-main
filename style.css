@@ -8,7 +8,7 @@
   --Very-dark-blue: hsl(234, 17%, 12%);
 }
 
-html {
+html, button {
   font-family: "Red Hat Text", sans-serif;
   font-size: 14px;
 }
@@ -25,7 +25,7 @@ body {
   text-align: center;
   background-image: url("./images/pattern-hills.svg"),
     url("./images/bg-stars.svg"),
-    linear-gradient(var(--Very-dark-blue), var(--Dark-desaturated-blue));
+    linear-gradient(rgb(30,31,40), rgb(41, 29, 53));
   background-repeat: no-repeat;
   background-position: bottom right -11rem, top center, center;
   background-attachment: fixed;
@@ -33,7 +33,6 @@ body {
 }
 
 main {
-  /* padding: 10.3rem 0 3.3rem; */
   padding: 2rem 0 3.3rem;
 }
 
@@ -116,7 +115,21 @@ main {
   font-size: 1.3rem;
   letter-spacing: 0.5rem;
   width: 25rem;
+  margin: 1rem auto;
+}
+
+.launch-btn {
+  height: fit-content;
+  width: fit-content;
   margin: auto;
+  background: var(--Soft-red);
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+  border: none;
+  color: white;
+  cursor: pointer;
+  letter-spacing: 0.1rem;
+  display: none;
 }
 
 /* timer */
@@ -239,26 +252,9 @@ p {
   z-index: 1;
 }
 
-@keyframes identifier {
-  0% {
-    transform: rotateX(0deg);
-  }
-  50% {
-    transform: rotateX(-180deg);
-    z-index: 2;
-  }
-  51% {
-    transform: rotateX(-181deg);
-    z-index: 0;
-  }
-  100% {
-    transform: rotateX(-360deg);
-    z-index: 0;
-  }
-}
-
-.card-flip-active {
-  animation: identifier 0.95s linear;
+.card-flipping {
+  transition: transform 0.7s;
+  transform: rotateX(-180deg);
 }
 
 .card-flip-front,
@@ -331,8 +327,34 @@ p {
   column-gap: 2.5rem;
 }
 
-.social-icon a:hover path {
-  fill: var(--Soft-red);
+.social-icon div {
+  height: 2rem;
+  width: 2rem;
+  background-color: #8385A9;
+  mask-position: center;
+  -webkit-mask-position: center;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  transition: background-color 0.5s;
+}
+
+.icon-facebook {
+  -webkit-mask-image: url(./images/icon-facebook.svg);
+  mask-image: url(./images/icon-facebook.svg);
+}
+
+.icon-pinterest {
+  -webkit-mask-image: url(./images/icon-pinterest.svg);
+  mask-image: url(./images/icon-pinterest.svg);
+}
+
+.icon-instagram {
+  -webkit-mask-image: url(./images/icon-instagram.svg);
+  mask-image: url(./images/icon-instagram.svg);
+}
+
+.social-icon a:hover div {
+  background-color: var(--Soft-red);
 }
 
 /* attribution */
